@@ -1,0 +1,4 @@
+<Response>
+  <ResponseCode>9999</ResponseCode>
+  <ErrorMessage>Invalid something</ErrorMessage>
+</Response>

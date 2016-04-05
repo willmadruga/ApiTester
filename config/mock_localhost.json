@@ -1,0 +1,9 @@
+{
+  "hostname": "localhost",
+  "path": "/xml",
+  "method": "GET",
+  "port": "8080",
+  "headers": {
+      "Content-Type": "text/xml"
+  }
+}

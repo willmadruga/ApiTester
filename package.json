@@ -1,0 +1,19 @@
+{
+  "name": "test-my-api",
+  "version": "0.2.0",
+  "description": "Just a tool to help me test XML APIs",
+  "main": "tester.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmadruga/test-my-api.git"
+  },
+  "author": "William Madruga <willmadruga@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "xml2js": "^0.4.16"
+  }
+}
