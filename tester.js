@@ -31,6 +31,7 @@ try {
 
   } else { // if a directory is passed, loop through and test them all
 
+    tests_path = path.parse(file_or_directory + '/req');
     var current_test = tests_path.dir + '/' + tests_path.base;
     console.log(colors.bgBlack.white('Processing directory: ' + current_test));
     fs.readdir( current_test, function( err, files ) {
