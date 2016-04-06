@@ -1,6 +1,7 @@
+#!/bin/env node
 /* *******************************************************************
   author: William Madruga <willmadruga@gmail.com>
-  version: 0.2.0
+  version: 0.2.2
 
   Convention:
   -----------
@@ -13,10 +14,12 @@
 
 const fs         = require('fs');
 const path       = require('path');
-const colors      = require('colors');
+const colors     = require('colors');
 const helper     = require('./lib/helper.js');
 
 try {
+
+  helper.banner();
 
   var file_or_directory = process.argv[4];
   var tests_path = path.parse(file_or_directory);
