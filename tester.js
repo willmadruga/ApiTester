@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 /* *******************************************************************
   author: William Madruga <willmadruga@gmail.com>
   version: 0.2.2
