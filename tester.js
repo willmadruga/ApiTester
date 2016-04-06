@@ -18,22 +18,20 @@ const helper     = require('./lib/helper.js');
 
 try {
 
-  var file_or_directory = process.argv[2];
+  var file_or_directory = process.argv[4];
   var tests_path = path.parse(file_or_directory);
-  var conn_options = helper.get_conn_options(process.argv[3], process.argv[4]);
+  var conn_options = helper.get_conn_options(process.argv[3], process.argv[2]);
 
   // if a single test file is passed:
   if (tests_path.ext !== '') {
 
     var current_test = tests_path.dir + '/' + tests_path.base;
-    console.log(colors.bgBlack.white('Testing: ' + current_test));
     helper.make_request(conn_options, file_or_directory, current_test);
 
   } else { // if a directory is passed, loop through and test them all
 
     tests_path = path.parse(file_or_directory + '/req');
     var current_test = tests_path.dir + '/' + tests_path.base;
-    console.log(colors.bgBlack.white('Processing directory: ' + current_test));
     fs.readdir( current_test, function( err, files ) {
       if (err) {
         helper.error_message(err);
