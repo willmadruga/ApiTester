@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* *******************************************************************
   author: William Madruga <willmadruga@gmail.com>
-  version: 0.2.2
+  version: 0.2.4
 
   Convention:
   -----------
@@ -15,6 +15,7 @@
 const fs         = require('fs');
 const path       = require('path');
 const colors     = require('colors');
+const async      = require('async');
 const helper     = require('./lib/helper.js');
 
 try {
@@ -33,6 +34,12 @@ try {
 
   } else { // if a directory is passed, loop through and test them all
 
+    // create a queue object with concurrency of five.
+    var q = async.queue(function (params, callback) {
+      helper.make_request(conn_options, params.path, params.file);
+      callback();
+    }, 5);
+
     tests_path = path.parse(file_or_directory + '/req');
     var current_test = tests_path.dir + '/' + tests_path.base;
     fs.readdir( current_test, function( err, files ) {
@@ -41,7 +48,11 @@ try {
       }
       files.forEach( function( file, index ) {
         var full_file_path = current_test + '/' + file;
-        helper.make_request(conn_options, full_file_path, file);
+        q.push({'path': full_file_path, 'file': file}, function (err) {
+          if (err) {
+            helper.error_message(err);
+          }
+        });
       });
     });
   }
