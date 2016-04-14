@@ -39,7 +39,7 @@ try {
     var q = async.queue(function (params, callback) {
       helper.make_request(conn_options, params.path, params.file);
       callback();
-    }, 1);
+    }, 5);
 
     tests_path = path.parse(file_or_directory + '/req');
     var current_test = tests_path.dir + '/' + tests_path.base;
