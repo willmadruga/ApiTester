@@ -49,7 +49,7 @@ try {
       }
       files.forEach( function( file, index ) {
         var full_file_path = current_test + '/' + file;
-        if (file.startsWith('off_')) {
+        if (file.startsWith('off_') || file.startsWith('0ff_')) {
           console.log(colors.bgYellow.blue('skipping ' + file));
         } else {
           q.push({'path': full_file_path, 'file': file}, function (err) {
