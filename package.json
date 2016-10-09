@@ -1,5 +1,5 @@
 {
-  "name": "test-my-api",
+  "name": "ApiTester",
   "version": "0.2.0",
   "description": "Just a tool to help me test XML APIs",
   "main": "tester.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wmadruga/test-my-api.git"
+    "url": "https://github.com/wmadruga/ApiTester.git"
   },
   "author": "William Madruga <willmadruga@gmail.com>",
   "license": "MIT",
